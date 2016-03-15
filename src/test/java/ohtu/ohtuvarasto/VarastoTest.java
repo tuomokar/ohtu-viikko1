@@ -155,7 +155,7 @@ public class VarastoTest {
         varasto.lisaaVarastoon(10);
         double annettu = varasto.otaVarastosta(10);
         assertTrue(varasto.getSaldo() == 0);
-        assertTrue(annettu == 10);
+        assertTrue(annettu == 9);
     }
     
 }
