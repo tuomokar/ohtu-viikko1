@@ -69,10 +69,93 @@ public class VarastoTest {
     public void konstr() {
         varasto = new Varasto(-1);
         varasto = new Varasto(0);
-        varasto = new Varasto(1,1);
-        varasto = new Varasto(1,2);
-        varasto = new Varasto(-1,2);
-        varasto = new Varasto(-1,-1);
+        varasto = new Varasto(1, 1);
+        varasto = new Varasto(1, 2);
+        varasto = new Varasto(-1, 2);
+        varasto = new Varasto(-1, -1);
         varasto.toString();
     }
+
+    @Test
+    public void nollanLisaaminenEiTeeMitaan() {
+        varasto.lisaaVarastoon(0);
+        assertTrue(varasto.getSaldo() == 0);
+    }
+
+    @Test
+    public void liikaaLisaaminenLaittaaTayteen() {
+        varasto.lisaaVarastoon(15);
+        assertTrue(varasto.getSaldo() == 10);
+    }
+
+    @Test
+    public void lisaaminenToimiiKunEiYlitetäTilavuutta() {
+        varasto.lisaaVarastoon(7);
+        assertTrue(varasto.getSaldo() == 7);
+    }
+    
+    @Test
+    public void yhdellaLiikaaLisaaminenLaittaaTayteen() {
+        varasto.lisaaVarastoon(11);
+        assertTrue(varasto.getSaldo() == 10);
+    }
+    
+    @Test
+    public void taydenTilavuudenLisaaminenLaittaaTayteen() {
+        varasto.lisaaVarastoon(10);
+        assertTrue(varasto.getSaldo() == 10);
+    }
+    
+    @Test
+    public void pienemmallaKuinNollallaLisaaminenEiTeeMitaan() {
+        varasto.lisaaVarastoon(-1);
+        assertTrue(varasto.getSaldo() == 0);
+    }
+    
+    @Test
+    public void yhdellaLisaaminenLisaaSaldoaYhdella() {
+        varasto.lisaaVarastoon(1);
+        assertTrue(varasto.getSaldo() == 1);
+    }
+    
+    @Test
+    public void nollallaOttaminenEiTeeMitaan() {
+        varasto.otaVarastosta(0);
+        assertTrue(varasto.getSaldo() == 0);
+    }
+    
+    @Test
+    public void negatiivisellaLuvullaOttaminenEiMuutaSaldoa() {
+        double annettu = varasto.otaVarastosta(-1);
+        assertTrue(varasto.getSaldo() == 0);
+        assertTrue(annettu == 0);
+    }
+    
+    
+    
+
+    @Test
+    public void yliSaldonOttaminenAntaaKaikenMahdollisen() {
+        varasto.lisaaVarastoon(10);
+        double annettu = varasto.otaVarastosta(15);
+        assertTrue(varasto.getSaldo() == 0);
+        assertTrue(annettu == 10);
+    }
+    
+    @Test
+    public void alleSaldonOttaminenAntaaOtetunMaaran() {
+        varasto.lisaaVarastoon(10);
+        double annettu = varasto.otaVarastosta(7);
+        assertTrue(varasto.getSaldo() == 3);
+        assertTrue(annettu == 7);
+    }
+    
+    @Test
+    public void kaikenOttaminenAntaaKaiken() {
+        varasto.lisaaVarastoon(10);
+        double annettu = varasto.otaVarastosta(10);
+        assertTrue(varasto.getSaldo() == 0);
+//        assertTrue(annettu == 10);
+    }
+    
 }
