@@ -18,14 +18,10 @@ public class AuthenticationService {
     }
 
     public boolean logIn(String username, String password) {
-        for (User user : userDao.listAll()) {
-            if (user.getUsername().equals(username)
-                    && user.getPassword().equals(password)) {
-                return true;
-            }
-        }
-
-        return false;
+        User user = userDao.findByName(username);
+        if (user == null) return false;
+        
+        return user.getPassword().equals(password);
     }
 
     public boolean createUser(String username, String password) {
