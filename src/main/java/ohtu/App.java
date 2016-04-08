@@ -33,6 +33,23 @@ public class App {
                 break;
             }
 
+            System.out.println("jsjsj");
+            System.out.println("jsjsj");
+            System.out.println("jsjsj");
+            System.out.println("jsjsj");
+            System.out.println("jsjsj");
+            System.out.println("jsjsj");
+            System.out.println("jsjsj");
+            System.out.println("jsjsj");
+            System.out.println("jsjsj");
+            System.out.println("jsjsj");
+            System.out.println("jsjsj");
+            System.out.println("jsjsj");
+            System.out.println("jsjsj");
+            System.out.println("jsjsj");
+            System.out.println("jsjsj");
+            System.out.println("jsjsj");
+            System.out.println("jsjsj");
             handleInput(command);
 
         }
