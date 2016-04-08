@@ -27,5 +27,9 @@
         </module>
     </module>
 
+    <configuration>
+        <failOnViolation>true</failOnViolation>
+    </configuration>
+
 
 </module>
