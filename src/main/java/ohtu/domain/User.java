@@ -1,8 +1,5 @@
 package ohtu.domain;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
 public class User {
 
     private String username;
@@ -19,5 +16,10 @@ public class User {
 
     public String getUsername() {
         return username;
+    }
+    
+    @Override
+    public String toString() {
+        return username + " " + password;
     }
 }
